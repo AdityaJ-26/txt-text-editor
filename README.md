@@ -15,7 +15,7 @@ cd build-custom
 ../configure \
     --with-gtk=3 \
     --disable-debug \
-    --prefix=<absolute_path_to_third_party>
+    --prefix=<absolute_path_to_third_party>/wxWidgets
 
 make -j$(nproc)
 make install
