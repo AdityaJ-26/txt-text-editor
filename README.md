@@ -2,26 +2,27 @@
 ```
 mkdir third_party
 cd third_party
-git clone git@github.com:wxWidgets/wxWidgets.git
+git clone git@github.com:wxWidgets/wxWidgets.git wxWidget
 
 cd wxWidgets
+# if required submodules are not present
+git submodule update --init --recursive
+
 mkdir build-custom
 cd build-custom
 
 ../configure \
     --with-gtk=3 \
     --disable-debug \
-    --prefix=$PWD/library
+    --prefix=$PWD/../../wxWidgets
 
 make -j$(nproc)
 make install
 
-mv library/ ../../
-
+cd ../..
 # test installation
-./library/bin/wx-config --version
+./wxWidgets/bin/wx-config --version
 
 # if working
-rm -rf wxWidgets
-mv library/ wxWidgets/
+rm -rf wxWidget
 ```
