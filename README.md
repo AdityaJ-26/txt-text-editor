@@ -11,10 +11,11 @@ git submodule update --init --recursive
 mkdir build-custom
 cd build-custom
 
+# use --prefix if you want local installation rather than system wide installation
 ../configure \
     --with-gtk=3 \
     --disable-debug \
-    --prefix=$PWD/../../wxWidgets
+    --prefix=<absolute_path_to_third_party>
 
 make -j$(nproc)
 make install
