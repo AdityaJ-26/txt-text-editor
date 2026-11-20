@@ -1,27 +1,27 @@
 ## Installation Guide for wxWidgets
 ```
-> mkdir third_party
-> cd third_party
-> git clone
+mkdir third_party
+cd third_party
+git clone git@github.com:wxWidgets/wxWidgets.git
 
-> cd wxWidgets
-> mkdir build-custom
-> cd build-custom
+cd wxWidgets
+mkdir build-custom
+cd build-custom
 
-> ../configure \
+../configure \
     --with-gtk=3 \
     --disable-debug \
     --prefix=$PWD/library
 
-> make -j$(nproc)
-> make install
+make -j$(nproc)
+make install
 
-> mv library/ ../../
+mv library/ ../../
 
 # test installation
-> ./library/bin/wx-config --version
+./library/bin/wx-config --version
 
 # if working
-> rm -rf wxWidgets
-> mv library/ wxWidgets/
+rm -rf wxWidgets
+mv library/ wxWidgets/
 ```
